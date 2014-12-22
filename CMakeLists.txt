@@ -13,10 +13,15 @@ pkg_check_modules( GDK3 REQUIRED gdk-pixbuf-2.0 )
 include_directories( ${GDK3_INCLUDE_DIRS} )
 link_directories( ${GDK3_LIBRARY_DIRS} )
 
+pkg_check_modules( SDL2 REQUIRED sdl2)
+include_directories( ${SDL2_INCLUDE_DIRS})
+
 set(CMAKE_C_DEBUG_FLAGS "-g")
 set(CMAKE_CXX_DEBUG_FLAGS "-g")
 
 set(CMAKE_CXX_FLAGS "-std=c++11")
+
+add_subdirectory(image-reader)
 
 # Unit test for Logging framework
 add_executable( logger-tests
